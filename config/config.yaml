@@ -1,0 +1,29 @@
+# config/config.yaml
+domains: # 要监控的域名列表
+  - www.baidu.com:443
+  - www.qq.com:443
+alert:
+  threshold: 14               # 预警天数
+  repeat_interval: 24        # 重复通知间隔(小时)
+# 通知方式
+# 目前支持邮件、钉钉、企业微信
+notifiers:
+  email:
+    enabled: true
+    smtp_server: smtp.qiye.domain.com
+    smtp_port: 465
+    smtp_username: manage@domain.com
+    smtp_password: password
+    from: manage@domain.com
+    to:
+      - my-email@qq.com
+  dingtalk:
+    enabled: true
+    webhook: https://connector.dingtalk.com/webhook/flow/10317e8*******a000m
+    at_mobiles: # 要@的手机号
+      - 18700000000
+  wecom:
+    enabled: false
+    webhook: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=f6019e59-********-131e764
+    mentioned_mobile_list: # 要@的手机号
+      - 18700000000
