@@ -45,7 +45,6 @@ func (n *Notifier) Send(message AlertMessage) error {
 		}
 		if err := notifier.Send(message); err != nil {
 			log.Printf("%s 发送失败: %s", notifier.Name(), err)
-			return err
 		}
 	}
 
